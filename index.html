@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Codebox : Open source cloud &amp; desktop IDE">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Codebox</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/fuzioncloud/codebox">View on GitHub</a>
+
+          <h1 id="project_title">Codebox</h1>
+          <h2 id="project_tagline">Open source cloud &amp; desktop IDE</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/fuzioncloud/codebox/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/fuzioncloud/codebox/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="codebox" class="anchor" href="#codebox"><span class="octicon octicon-link"></span></a>Codebox</h1>
+
+<blockquote>
+<p>"Open source cloud &amp; desktop IDE."</p>
+</blockquote>
+
+<p><a href="https://travis-ci.org/CodeboxIDE/codebox"><img src="https://travis-ci.org/CodeboxIDE/codebox.png?branch=master" alt="Build Status"></a>
+<a href="http://badge.fury.io/js/codebox"><img src="https://badge.fury.io/js/codebox.svg" alt="NPM version"></a></p>
+
+<h4>
+<a name="warning-instructions-are-for-the-not-yet-published-version-100" class="anchor" href="#warning-instructions-are-for-the-not-yet-published-version-100"><span class="octicon octicon-link"></span></a><img class="emoji" title=":warning:" alt=":warning:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png" height="20" width="20" align="absmiddle"> Instructions are for the not yet published version 1.0.0</h4>
+
+<p>Codebox is a complete and modular Cloud IDE. It can run on any unix-like machine (Linux, Mac OS X). It is an open source component of <a href="https://www.codebox.io">codebox.io</a> (Cloud IDE as a Service).</p>
+
+<p>The IDE can run on your desktop (Linux or Mac), on your server or the cloud. You can use the <a href="https://www.codebox.io">codebox.io</a> service to host and manage IDE instances.</p>
+
+<p>Codebox is built with web technologies: <code>node.js</code>, <code>javascript</code>, <code>html</code> and <code>less</code>. The IDE possesses a very modular and extensible architecture, that allows you to build your own features with through add-ons. Codebox is the first open and modular IDE capable of running both on the Desktop and in the cloud (with offline support).</p>
+
+<p>The project is open source under the <a href="https://github.com/FriendCode/codebox/blob/master/LICENSE">Apache 2.0</a> license.
+A screencast of the IDE is available on <a href="https://www.youtube.com/watch?v=xvPEngyXA2A">Youtube</a>.</p>
+
+<p><img src="https://raw.github.com/FriendCode/codebox/master/screenshot.png" alt="Image"></p>
+
+<h2>
+<a name="how-to-install-and-run-codebox" class="anchor" href="#how-to-install-and-run-codebox"><span class="octicon octicon-link"></span></a>How to install and run Codebox</h2>
+
+<h4>
+<a name="desktop-applications" class="anchor" href="#desktop-applications"><span class="octicon octicon-link"></span></a>Desktop Applications</h4>
+
+<p>Installers for the latest stable build for <strong>Mac</strong> and <strong>Linux</strong> can be downloaded on the <a href="https://github.com/FriendCode/codebox/releases">release page</a>.</p>
+
+<p>Instructions on how to install it can be found for each release.</p>
+
+<h4>
+<a name="install-from-npm" class="anchor" href="#install-from-npm"><span class="octicon octicon-link"></span></a>Install from NPM</h4>
+
+<p>Codebox can be installed as a Node package and use programatically or from the command line.</p>
+
+<p>Install Codebox globally using NPM:</p>
+
+<pre><code>$ npm install -g codebox
+</code></pre>
+
+<p>And start the IDE from the command line:</p>
+
+<pre><code>$ codebox --root=./myworkspace --open
+</code></pre>
+
+<p>Use this command to run and open Codebox IDE. By default, Codebox uses GIT to identify you, you can use the option <code>--email=john.doe@gmail.com</code> to define the email you want to use during GIT operations.</p>
+
+<p>Others comand line options are available and can be list with: <code>codebox --help</code>. For deeper configuration, take a look at the documentation about <a href="http://help.codebox.io/ide/env.html">environment variables</a>.</p>
+
+<h4>
+<a name="command-line-options" class="anchor" href="#command-line-options"><span class="octicon octicon-link"></span></a>Command line options</h4>
+
+<pre><code>-h, --help              output usage information
+-V, --version           output the version number
+-r, --root [path]       Root folder for the workspace, default is current directory
+-t, --templates [list]  Configuration templates, separated by commas
+-p, --port [port]       HTTP port
+</code></pre>
+
+<h4>
+<a name="developing-and-testing-packages" class="anchor" href="#developing-and-testing-packages"><span class="octicon octicon-link"></span></a>Developing and testing packages</h4>
+
+<p>Download and build the source code:</p>
+
+<pre><code>$ git clone -b new https://github.com/CodeboxIDE/codebox.git
+$ cd ./codebox
+$ npm install .
+$ grunt
+</code></pre>
+
+<p>Then you can easily link packages for testing by creating a folder that will contains all your packages (each should start with the prefix <code>package-</code>), then run the command <code>grunt link --origin=../mypackages</code>. This command will create symlinks between all the packages in <code>../mypackages</code> and the folder where are stored packages used by codebox.</p>
+
+<p>Everytime you update the code of your package, simply run <code>grunt resetPkg --pkg=mypackage</code> in it and restart codebox.</p>
+
+<h4>
+<a name="need-help" class="anchor" href="#need-help"><span class="octicon octicon-link"></span></a>Need help?</h4>
+
+<p>The IDE's documentation can be found at <a href="http://help.codebox.io">help.codebox.io</a>. Feel free to ask any questions or signal problems by adding issues.</p>
+
+<h2>
+<a name="helping-codebox" class="anchor" href="#helping-codebox"><span class="octicon octicon-link"></span></a>Helping Codebox</h2>
+
+<p><strong>I want to help with the code:</strong> Codebox accepts pull-requests, please see the <a href="https://github.com/FriendCode/codebox/blob/master/CONTRIBUTING.md">Contributing to Codebox</a> guide for information on contributing to this project. And don't forget to add your contact informations on the AUTHORS list.</p>
+
+<p><strong>I found a bug:</strong> File it as an <a href="https://github.com/FriendCode/codebox/issues">issue</a> and please describe as much as possible the bug and the context.</p>
+
+<p><strong>I have a new suggestion:</strong> For feature requests please first check <a href="https://github.com/FriendCode/codebox/issues">the issues list</a> to see if it's already there. If not, feel free to file it as an issue and to define the label <strong>enhancement</strong>.</p>
+
+<h2>
+<a name="contact-info" class="anchor" href="#contact-info"><span class="octicon octicon-link"></span></a>Contact info</h2>
+
+<ul>
+<li>
+<strong>Website:</strong> <a href="https://www.codebox.io">www.codebox.io</a>
+</li>
+<li>
+<strong>Twitter:</strong> <a href="https://twitter.com/CodeboxIO">@CodeboxIO</a>
+</li>
+<li>
+<strong>Blog:</strong> <a href="http://blog.codebox.io">blog.codebox.io</a>
+</li>
+<li>
+<strong>Youtube:</strong> <a href="http://www.youtube.com/channel/UCWocQwS2VmDS3Ej0LQYWVIw">Codebox Channel</a>
+</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Codebox maintained by <a href="https://github.com/fuzioncloud">fuzioncloud</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
